@@ -1,47 +1,111 @@
-<!doctype html>
-<html lang="zh-Hant" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="你的名字的個人學術作品集">
-  <title>你的名字｜個人網站</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your Name — first-year AI student portfolio">
+  <title>Your Name | AI Student</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="site-header">
-    <a class="wordmark" href="#top" aria-label="Home">YOUR NAME</a>
-    <div class="header-actions">
-      <button id="language-toggle" class="text-button" type="button" aria-label="Switch language">EN</button>
-      <button id="theme-toggle" class="icon-button" type="button" aria-label="切換深色主題" title="切換深色主題">◐</button>
-      <button class="menu-toggle" type="button" aria-label="開啟選單" aria-expanded="false"><span></span><span></span></button>
-    </div>
-    <nav class="navigation" aria-label="主要導覽">
-      <a href="#about" data-i18n="navAbout">關於我</a><a href="#interests" data-i18n="navInterests">興趣</a><a href="#goals" data-i18n="navGoals">學習目標</a><a href="#projects" data-i18n="navProjects">作品</a><a href="#contact" data-i18n="navContact">聯絡</a>
+    <a class="logo" href="#home">YN<span>.</span></a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#interests">Interests</a>
+      <a href="#why-ai">Why AI</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
-  <main id="top">
-    <section class="hero page-width">
-      <div class="profile-photo" aria-label="個人照片預留位置">
-        <!-- 將 profile.jpg 換成你的照片檔名即可；建議使用正方形照片。 -->
-        <img src="profile.jpg" alt="你的名字的大頭貼" onerror="this.hidden=true; this.nextElementSibling.hidden=false;">
-        <span class="photo-placeholder" hidden>YN</span>
+
+  <main>
+    <section class="hero wrap" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">FIRST-YEAR AI STUDENT</p>
+        <h1>Hello, I’m<br><span>Your Name.</span></h1>
+        <p class="intro">I’m beginning my journey in Artificial Intelligence—curious about how technology can help people learn, create, and solve everyday problems.</p>
+        <a class="primary-button" href="#projects">See my projects <span>↓</span></a>
       </div>
-      <div class="hero-copy"><p class="kicker" data-i18n="role">博士生 · Stanford University</p><h1 data-i18n="name">你的名字</h1><p class="hero-intro" data-i18n="heroIntro">我是一位專注於人與科技交會點的研究者與創作者，喜歡把複雜問題轉化成清晰、有意義的體驗。</p><div class="hero-links"><a href="#contact" data-i18n="getInTouch">與我聯絡</a><a href="#projects" data-i18n="viewWork">查看作品</a></div></div>
+      <div class="avatar-card">
+        <!-- Replace profile.jpg with your own square photo when you are ready. -->
+        <div class="avatar"><img src="profile.jpg" alt="Portrait of Your Name" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span hidden>YN</span></div>
+        <p>Learning one idea<br>at a time ✦</p>
+      </div>
     </section>
-    <section class="content-section page-width" id="about"><div class="section-heading"><p>01</p><h2 data-i18n="aboutTitle">關於我</h2></div><div class="section-content about-content"><p class="lead" data-i18n="aboutLead">我相信嚴謹的思考與溫暖的設計，可以一起讓世界變得更好。</p><div><p data-i18n="aboutBody">目前專注於網頁開發與使用者體驗設計，持續探索數位工具如何幫助人們學習、溝通與創造。我喜歡從觀察生活開始，將抽象概念整理成易於理解且真正有用的成果。</p><dl><div><dt data-i18n="fieldLabel">研究領域</dt><dd data-i18n="fieldValue">人機互動、使用者體驗</dd></div><div><dt data-i18n="locationLabel">所在地</dt><dd data-i18n="locationValue">California, USA</dd></div></dl></div></div></section>
-    <section class="content-section page-width" id="interests"><div class="section-heading"><p>02</p><h2 data-i18n="interestsTitle">興趣</h2></div><div class="section-content list-grid"><article><h3 data-i18n="interest1Title">設計探索</h3><p data-i18n="interest1Body">觀察生活裡好看又好用的細節。</p></article><article><h3 data-i18n="interest2Title">影像紀錄</h3><p data-i18n="interest2Body">用鏡頭收集光線、色彩與故事。</p></article><article><h3 data-i18n="interest3Title">音樂與閱讀</h3><p data-i18n="interest3Body">在旋律和文字之間獲得靈感。</p></article></div></section>
-    <section class="content-section page-width" id="goals"><div class="section-heading"><p>03</p><h2 data-i18n="goalsTitle">我的學習目標</h2></div><div class="section-content goal-list"><article><span>01</span><div><h3 data-i18n="goal1Title">精進網頁開發</h3><p data-i18n="goal1Body">持續練習 HTML、CSS 與 JavaScript，打造更流暢的網站體驗。</p></div></article><article><span>02</span><div><h3 data-i18n="goal2Title">理解使用者需求</h3><p data-i18n="goal2Body">從觀察與測試中學習，設計真正能解決問題的介面。</p></div></article><article><span>03</span><div><h3 data-i18n="goal3Title">完成更多作品</h3><p data-i18n="goal3Body">把學到的知識實作成作品，記錄每一次成長。</p></div></article></div></section>
-    <section class="content-section page-width" id="projects"><div class="section-heading"><p>04</p><h2 data-i18n="projectsTitle">作品</h2></div><div class="section-content project-list"><article><div><p class="project-type">WEB DESIGN · 2026</p><h3 data-i18n="project1">品牌形象網站</h3></div><a href="#contact" aria-label="View project">↗</a></article><article><div><p class="project-type">UI / UX · 2026</p><h3 data-i18n="project2">行動應用程式</h3></div><a href="#contact" aria-label="View project">↗</a></article><article><div><p class="project-type">VISUAL · 2025</p><h3 data-i18n="project3">活動視覺設計</h3></div><a href="#contact" aria-label="View project">↗</a></article></div></section>
-    <section class="contact" id="contact"><div class="page-width"><p class="kicker">05 · <span data-i18n="contactTitle">聯絡方式</span></p><h2 data-i18n="contactLead">歡迎來信交流。</h2><a class="email" href="mailto:hello@example.com">hello@example.com <span>↗</span></a><div class="socials"><a href="#contact">LinkedIn</a><a href="#contact">GitHub</a><a href="#contact">Google Scholar</a></div></div></section>
+
+    <section class="wrap section about" id="about">
+      <div class="section-number">01</div>
+      <div class="section-body">
+        <p class="eyebrow">A LITTLE ABOUT ME</p>
+        <h2>I’m <em>Your Name</em>, a first-year student exploring the world of AI.</h2>
+        <p>I enjoy asking questions, trying new tools, and turning what I learn into small projects. This website is a space to share my progress as I take my first steps in artificial intelligence.</p>
+      </div>
+    </section>
+
+    <section class="wrap section" id="interests">
+      <div class="section-number">02</div>
+      <div class="section-body">
+        <p class="eyebrow">MY INTERESTS</p>
+        <h2>Things I’m excited to explore.</h2>
+        <div class="interest-grid">
+          <article><div class="icon lavender">⌘</div><h3>AI & technology</h3><p>Learning how intelligent systems work and where they can make a difference.</p></article>
+          <article><div class="icon yellow">✦</div><h3>Creative design</h3><p>Finding simple, thoughtful ways to make digital experiences feel friendly.</p></article>
+          <article><div class="icon green">◌</div><h3>Learning & sharing</h3><p>Documenting what I discover and exchanging ideas with other learners.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-ai" id="why-ai">
+      <div class="wrap why-inner">
+        <div class="section-number">03</div>
+        <div class="section-body">
+          <p class="eyebrow">WHY I WANT TO LEARN AI</p>
+          <h2>Because I want to understand the tools shaping our future.</h2>
+          <p>AI is changing how we study, work, and communicate. I want to build a solid foundation, learn responsibly, and someday use these skills to create useful things for real people.</p>
+          <div class="note"><span>✦</span> I’m currently learning the basics: Python, data, and machine learning.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="projects">
+      <div class="section-number">04</div>
+      <div class="section-body">
+        <p class="eyebrow">MY PROJECTS</p>
+        <h2>Small projects, big learning.</h2>
+        <div class="project-grid">
+          <article class="project project-one"><div class="project-art chart"><i></i><i></i><i></i><i></i></div><p>BEGINNER PROJECT · 01</p><h3>Data Explorer</h3><span>A simple project for visualising data and finding patterns.</span></article>
+          <article class="project project-two"><div class="project-art bot"><div>☺</div><i></i><i></i></div><p>BEGINNER PROJECT · 02</p><h3>Study Buddy Bot</h3><span>An early experiment in making learning a little more interactive.</span></article>
+          <article class="project project-three"><div class="project-art pixels"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><p>COMING SOON · 03</p><h3>Next experiment</h3><span>I’m always looking for the next thing to learn and build.</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact wrap" id="contact">
+      <p class="eyebrow">LET’S CONNECT</p>
+      <h2>Want to talk about AI, learning, or a new idea?</h2>
+      <a class="email" href="mailto:hello@example.com">hello@example.com <span>↗</span></a>
+      <div class="social-links"><a href="#contact">LinkedIn</a><a href="#contact">GitHub</a><a href="#contact">Instagram</a></div>
+    </section>
   </main>
-  <footer class="page-width">© 2026 YOUR NAME</footer>
+
+  <footer class="wrap">© 2026 YOUR NAME · Built with curiosity.</footer>
   <script>
-    const translations={zh:{navAbout:'關於我',navInterests:'興趣',navGoals:'學習目標',navProjects:'作品',navContact:'聯絡',role:'博士生 · Stanford University',name:'你的名字',heroIntro:'我是一位專注於人與科技交會點的研究者與創作者，喜歡把複雜問題轉化成清晰、有意義的體驗。',getInTouch:'與我聯絡',viewWork:'查看作品',aboutTitle:'關於我',aboutLead:'我相信嚴謹的思考與溫暖的設計，可以一起讓世界變得更好。',aboutBody:'目前專注於網頁開發與使用者體驗設計，持續探索數位工具如何幫助人們學習、溝通與創造。我喜歡從觀察生活開始，將抽象概念整理成易於理解且真正有用的成果。',fieldLabel:'研究領域',fieldValue:'人機互動、使用者體驗',locationLabel:'所在地',locationValue:'California, USA',interestsTitle:'興趣',interest1Title:'設計探索',interest1Body:'觀察生活裡好看又好用的細節。',interest2Title:'影像紀錄',interest2Body:'用鏡頭收集光線、色彩與故事。',interest3Title:'音樂與閱讀',interest3Body:'在旋律和文字之間獲得靈感。',goalsTitle:'我的學習目標',goal1Title:'精進網頁開發',goal1Body:'持續練習 HTML、CSS 與 JavaScript，打造更流暢的網站體驗。',goal2Title:'理解使用者需求',goal2Body:'從觀察與測試中學習，設計真正能解決問題的介面。',goal3Title:'完成更多作品',goal3Body:'把學到的知識實作成作品，記錄每一次成長。',projectsTitle:'作品',project1:'品牌形象網站',project2:'行動應用程式',project3:'活動視覺設計',contactTitle:'聯絡方式',contactLead:'歡迎來信交流。'},en:{navAbout:'About',navInterests:'Interests',navGoals:'Learning Goals',navProjects:'Projects',navContact:'Contact',role:'Ph.D. Student · Stanford University',name:'Your Name',heroIntro:'I am a researcher and creator working at the intersection of people and technology. I enjoy turning complex questions into clear, meaningful experiences.',getInTouch:'Get in touch',viewWork:'View projects',aboutTitle:'About',aboutLead:'I believe rigorous thinking and thoughtful design can make the world a little better.',aboutBody:'I focus on web development and user experience design, exploring how digital tools can help people learn, communicate, and create. I start with everyday observation and shape abstract ideas into useful, approachable outcomes.',fieldLabel:'Research interests',fieldValue:'HCI, User Experience',locationLabel:'Based in',locationValue:'California, USA',interestsTitle:'Interests',interest1Title:'Design exploration',interest1Body:'Noticing details that are both beautiful and useful.',interest2Title:'Photography',interest2Body:'Collecting light, color, and stories through a lens.',interest3Title:'Music & reading',interest3Body:'Finding inspiration between melody and words.',goalsTitle:'Learning goals',goal1Title:'Strengthen web development',goal1Body:'Practice HTML, CSS, and JavaScript to create smoother web experiences.',goal2Title:'Understand user needs',goal2Body:'Learn through observation and testing to design interfaces that solve real problems.',goal3Title:'Build more work',goal3Body:'Turn new knowledge into projects and document each step of growth.',projectsTitle:'Projects',project1:'Brand website',project2:'Mobile application',project3:'Event visual identity',contactTitle:'Contact',contactLead:'I would love to hear from you.'}};
-    const root=document.documentElement,languageToggle=document.querySelector('#language-toggle'),themeToggle=document.querySelector('#theme-toggle');
-    function setLanguage(lang){root.lang=lang==='zh'?'zh-Hant':'en';document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=translations[lang][el.dataset.i18n]);languageToggle.textContent=lang==='zh'?'EN':'中';languageToggle.setAttribute('aria-label',lang==='zh'?'Switch to English':'切換為中文');localStorage.setItem('language',lang)}
-    function setTheme(theme){root.dataset.theme=theme;themeToggle.textContent=theme==='light'?'◐':'☼';themeToggle.setAttribute('aria-label',theme==='light'?'切換深色主題':'Switch to light theme');localStorage.setItem('theme',theme)}
-    setLanguage(localStorage.getItem('language')||'zh');setTheme(localStorage.getItem('theme')||'light');languageToggle.addEventListener('click',()=>setLanguage(root.lang==='zh-Hant'?'en':'zh'));themeToggle.addEventListener('click',()=>setTheme(root.dataset.theme==='light'?'dark':'light'));
-    const menuToggle=document.querySelector('.menu-toggle'),nav=document.querySelector('.navigation');menuToggle.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menuToggle.classList.toggle('is-open',open);menuToggle.setAttribute('aria-expanded',open)});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('is-open');menuToggle.classList.remove('is-open');menuToggle.setAttribute('aria-expanded',false)}));
+    const menuButton = document.querySelector('.menu-button');
+    const nav = document.querySelector('.nav');
+    menuButton.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      menuButton.classList.toggle('open', isOpen);
+      menuButton.setAttribute('aria-expanded', isOpen);
+    });
+    nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    }));
   </script>
 </body>
 </html>

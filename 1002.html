@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成式 AI 課堂實作成果展</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        primary: '#38bdf8',
+                        accent: '#818cf8',
+                        success: '#10b981'
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%231e293b' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0f172a; color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; overflow-x: hidden; }
+        .glass-nav { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -10px rgba(56, 189, 248, 0.15); border-color: rgba(56, 189, 248, 0.4); }
+        
+        .timeline-line::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #38bdf8, #818cf8, #10b981); transform: translateX(-50%); z-index: 0; opacity: 0.3; }
+        @media (max-width: 768px) { .timeline-line::before { left: 24px; } }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="antialiased relative bg-grid-pattern">
+
+    <nav class="glass-nav fixed w-full z-50 top-0 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-20">
+                <div class="font-bold text-2xl tracking-wider text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                    <i class="fas fa-layer-group mr-2 text-primary"></i>AI.Works
+                </div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+                    <a href="#home" class="hover:text-white transition">首頁</a>
+                    <a href="#about" class="hover:text-white transition">作業介紹</a>
+                    <a href="#video" class="hover:text-white transition">第一週：影片成果</a>
+                    <a href="#compare" class="hover:text-white transition">第二週：網頁演進</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="min-h-[90vh] flex flex-col items-center justify-center pt-20 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] mix-blend-screen opacity-40"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] mix-blend-screen opacity-40"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
+            <div class="inline-flex items-center space-x-2 bg-slate-800/50 border border-slate-700/50 rounded-full px-4 py-2 mb-8 backdrop-blur-sm">
+                <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span>
+                <span class="text-xs font-mono text-gray-300">Generative AI Class Project</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-8 leading-tight tracking-tight">
+                探索 AI 創作的 <br/>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-purple-500">
+                    可能性與邊界
+                </span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+                從概念發想、Prompt 撰寫到修改除錯。本網站完整收錄第一週 AI 影片生成與第二週 AI 網頁建置的課堂練習成果，展現從無到有的迭代過程。
+            </p>
+            <a href="#about" class="group inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-slate-800 border border-slate-600 rounded-full hover:bg-slate-700 hover:border-primary transition-all duration-300 shadow-lg">
+                開始探索作品 
+                <i class="fas fa-arrow-down ml-3 text-primary group-hover:translate-y-1 transition-transform"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 relative">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/80 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="mb-20 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">兩週實作總覽</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-card/80 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-video text-6xl text-white"></i></div>
+                    <div class="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-6 text-primary text-xl">1</div>
+                    <h3 class="font-bold text-2xl mb-3 text-white">AI 影片生成</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">第一週練習，運用生成工具產出具有物理互動邏輯的情境影片，測試 AI 對於神態與環境的理解。</p>
+                </div>
+
+                <div class="bg-card/80 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl card-hover relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-laptop-code text-6xl text-white"></i></div>
+                    <div class="w-12 h-12 bg-accent/20 rounded-xl flex items-center justify-center mb-6 text-accent text-xl">2</div>
+                    <h3 class="font-bold text-2xl mb-3 text-white">AI 網頁建置</h3>
+                    <p class="text-gray-400 leading-relaxed mb-6">第二週練習，經歷四次迭代，從中文初版修改至英文簡約版，完成個人網站雛形。</p>
+                </div>
+
+                <div class="bg-card/80 backdrop-blur-sm border border-slate-700 p-8 rounded-3xl card-hover lg:col-span-1 md:col-span-2">
+                    <h3 class="font-bold text-xl mb-6 text-white flex items-center"><i class="fas fa-toolbox mr-3 text-gray-500"></i>關鍵輔助工具</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-terminal text-2xl text-emerald-400 mt-1 mr-4 w-8 text-center"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-200">Codex CLI</h4>
+                                <p class="text-sm text-gray-500 mt-1">用於架站與跑修改指令。快速建立網頁環境與雛形。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fab fa-git-alt text-2xl text-orange-500 mt-1 mr-4 w-8 text-center"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-200">Git 版本控制</h4>
+                                <p class="text-sm text-gray-500 mt-1">建立存檔。若 AI 把網站改壞且還沒 commit，可隨時用 <code class="bg-slate-800 px-1 py-0.5 rounded text-orange-300">git restore .</code> 回原狀，提供極大的容錯空間。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 04: AI 影片成果 -->
+    <section id="video" class="py-24 bg-slate-900/40 border-y border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 text-white">第一週：AI 影片生成</h2>
+                    <p class="text-gray-400">測試 AI 生成人物與環境互動的物理邏輯</p>
+                </div>
+                <span class="hidden md:inline-block px-4 py-1 rounded-full border border-primary/30 text-primary text-sm bg-primary/10">Project 01</span>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-slate-800/30 p-6 md:p-10 rounded-3xl border border-slate-700/50">
+                <!-- 影片區塊：檔名已改為 video.mp4 -->
+                <div class="lg:col-span-8 rounded-2xl overflow-hidden shadow-2xl relative bg-black aspect-video group flex items-center justify-center">
+                    <video controls class="w-full h-full object-cover relative z-0">
+                        <source src="video.mp4" type="video/mp4">
+                        您的瀏覽器不支援影片標籤，或是忘記把 video.mp4 上傳到 GitHub 了喔！
+                    </video>
+                </div>
+                
+                <div class="lg:col-span-4 space-y-6">
+                    <h3 class="text-2xl font-bold text-white leading-snug">鏡中的自我對話 <br/><span class="text-lg text-gray-400 font-normal mt-2 block">光影與反射的細節考驗</span></h3>
+                    <div class="space-y-4 text-gray-300 text-sm">
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 border-l-4 border-l-primary">
+                            <strong class="block text-white mb-1"><i class="fas fa-eye text-primary mr-2"></i>畫面內容</strong>
+                            一名男子看著鏡中的自己，並伸手觸碰鏡面。影片成功呈現了鏡像反轉的物理特性。
+                        </div>
+                        <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-700 border-l-4 border-l-accent">
+                            <strong class="block text-white mb-1"><i class="fas fa-lightbulb text-accent mr-2"></i>製作想法</strong>
+                            這不僅是生成一個人像，更考驗 AI 是否能理解「鏡面反射」的空間感，以及手部觸碰鏡面時的光影變化與邊界處理。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 05: 網頁成果截圖全展示 -->
+    <section id="compare" class="py-24 relative">
+        <div class="max-w-5xl mx-auto px-4 relative">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">第二週：網頁生成與迭代歷程</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">使用 Codex CLI 進行架站，透過指令與 AI 協作，從零開始進行 4 次版本迭代，逐步打磨出最終的個人網站。</p>
+            </div>
+
+            <div class="relative timeline-line space-y-24">
+                
+                <!-- 迭代 1 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                    <div class="hidden md:flex w-1/2 justify-end text-right">
+                        <div class="max-w-sm">
+                            <span class="inline-block text-xs font-bold tracking-widest bg-slate-800 text-primary px-3 py-1 rounded-full border border-primary/30 mb-3">VERSION 1.0 (INITIAL)</span>
+                            <h3 class="text-2xl font-bold text-white mb-3">中文初版生成</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">第一次生成的結果，主視覺包含醒目的綠色圓形與文字：「把想法，做成有感的體驗。HELLO WORLD」。</p>
+                            <div class="bg-slate-900 p-3 rounded-lg text-xs text-gray-500 border border-slate-800 inline-block text-left">
+                                <i class="fas fa-search text-gray-400 mr-1"></i> 發現問題：排版略顯空曠，缺乏沉穩的專業感。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-slate-900 border-4 border-primary rounded-full z-20"></div>
+                    <div class="w-full pl-16 md:pl-0 md:w-1/2">
+                        <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-xl group card-hover">
+                            <div class="h-6 bg-slate-900 flex items-center px-3 space-x-1.5 border-b border-slate-700">
+                                <div class="w-2 h-2 rounded-full bg-red-500/80"></div><div class="w-2 h-2 rounded-full bg-yellow-500/80"></div><div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <!-- 圖片 1.png -->
+                            <img src="1.png" alt="網頁初版" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://fakeimg.pl/800x450/1e293b/38bdf8/?text=Please+Upload+1.png+to+GitHub&font=museo'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 迭代 2 -->
+                <div class="relative z-10 flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                    <div class="hidden md:flex w-1/2 justify-start text-left">
+                        <div class="max-w-sm">
+                            <span class="inline-block text-xs font-bold tracking-widest bg-slate-800 text-accent px-3 py-1 rounded-full border border-accent/30 mb-3">VERSION 2.0 (REVISE)</span>
+                            <h3 class="text-2xl font-bold text-white mb-3">轉換為簡約研究者風格</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">要求 AI 修改版面配置，加入「Stanford University博士生」字樣，整體色調改為白底搭配紅色點綴。</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-slate-900 border-4 border-accent rounded-full z-20"></div>
+                    <div class="w-full pl-16 md:pl-0 md:w-1/2 text-right md:text-left">
+                        <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-xl group card-hover">
+                            <div class="h-6 bg-slate-900 flex items-center px-3 space-x-1.5 border-b border-slate-700">
+                                <div class="w-2 h-2 rounded-full bg-red-500/80"></div><div class="w-2 h-2 rounded-full bg-yellow-500/80"></div><div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <!-- 圖片 2.png -->
+                            <img src="2.png" alt="簡約風格" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://fakeimg.pl/800x450/1e293b/818cf8/?text=Please+Upload+2.png+to+GitHub&font=museo'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 迭代 3 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+                    <div class="hidden md:flex w-1/2 justify-end text-right">
+                        <div class="max-w-sm">
+                            <span class="inline-block text-xs font-bold tracking-widest bg-slate-800 text-emerald-400 px-3 py-1 rounded-full border border-emerald-400/30 mb-3">VERSION 3.0 (EXPERIMENT)</span>
+                            <h3 class="text-2xl font-bold text-white mb-3">測試科技網格風格</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">嘗試讓背景加入科技感的網格線條，並保留個人介紹與作品集的架構。</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-6 h-6 bg-slate-900 border-4 border-emerald-400 rounded-full z-20"></div>
+                    <div class="w-full pl-16 md:pl-0 md:w-1/2">
+                        <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-xl group card-hover">
+                            <div class="h-6 bg-slate-900 flex items-center px-3 space-x-1.5 border-b border-slate-700">
+                                <div class="w-2 h-2 rounded-full bg-red-500/80"></div><div class="w-2 h-2 rounded-full bg-yellow-500/80"></div><div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <!-- 圖片 3.png -->
+                            <img src="3.png" alt="網格風格" class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://fakeimg.pl/800x450/1e293b/10b981/?text=Please+Upload+3.png+to+GitHub&font=museo'">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 迭代 4 (最終版) -->
+                <div class="relative z-10 flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+                    <div class="hidden md:flex w-1/2 justify-start text-left">
+                        <div class="max-w-sm">
+                            <span class="inline-block text-xs font-bold tracking-widest bg-amber-500/20 text-amber-400 px-3 py-1 rounded-full border border-amber-500/50 mb-3 shadow-[0_0_15px_rgba(245,158,11,0.2)]">VERSION 4.0 (FINAL)</span>
+                            <h3 class="text-2xl font-bold text-white mb-3">最終英文定案版</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed mb-4">將語言轉換為英文，捨棄過多裝飾，採用乾淨的現代字體排版與舒適留白。</p>
+                            <div class="bg-slate-800 p-3 rounded-lg text-sm text-white border border-slate-600 inline-block font-medium">
+                                <i class="fas fa-check-circle text-amber-400 mr-1"></i> 最終成果：成功呈現具備大學生專業感與設計感的作品集。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-amber-500 shadow-[0_0_20px_rgba(245,158,11,0.5)] border-4 border-slate-900 rounded-full z-20 flex items-center justify-center">
+                        <i class="fas fa-star text-[10px] text-white"></i>
+                    </div>
+                    <div class="w-full pl-16 md:pl-0 md:w-1/2 text-right md:text-left">
+                        <div class="bg-slate-800 rounded-xl overflow-hidden border-2 border-amber-500/50 shadow-[0_20px_50px_-12px_rgba(245,158,11,0.25)] group">
+                            <div class="h-6 bg-slate-900 flex items-center px-3 space-x-1.5 border-b border-slate-700">
+                                <div class="w-2 h-2 rounded-full bg-red-500/80"></div><div class="w-2 h-2 rounded-full bg-yellow-500/80"></div><div class="w-2 h-2 rounded-full bg-green-500/80"></div>
+                            </div>
+                            <!-- 圖片 4.png -->
+                            <img src="4.png" alt="最終成品" class="w-full h-auto object-cover" onerror="this.src='https://fakeimg.pl/800x450/1e293b/f59e0b/?text=Please+Upload+4.png+to+GitHub&font=museo'">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer 總結 -->
+    <footer class="py-16 border-t border-slate-800 text-center relative overflow-hidden bg-slate-900/80">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent"></div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4">
+            <h3 class="text-2xl font-bold mb-4 text-white">心得與總結</h3>
+            <p class="text-gray-400 leading-relaxed mb-8">
+                從第一週的影片發想，到第二週親手與 AI 結對程式設計，這次課堂練習完整體驗了<br/>
+                <strong class="text-gray-200 font-medium">「想法 → 生成 → 版本控管 (Git) → 迭代修改 → 完成」</strong> 的工作流。<br/>
+                AI 大幅減少了實作技術的門檻，讓我們能更專注於「審美、邏輯與需求定義」的核心價值。
+            </p>
+            <span class="text-sm text-primary font-mono bg-slate-800 px-5 py-2.5 rounded-full border border-primary/30 shadow-[0_0_15px_rgba(56,189,248,0.2)]">
+                Task Completed: 100%
+            </span>
+            
+            <div class="mt-16 text-sm text-gray-600">
+                <p>Generative AI Class Project © 2026</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+
